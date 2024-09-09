@@ -26,9 +26,11 @@
     "createUpdaterArtifacts": true,
     "shortDescription": "VBiblio est un logiciel de gestion de bibliothèque. Il est principalement à destination des élèves d'école primaire et leur permet d'emprunter des livres.",
     "icon": [
-      "icons/logo.svg",
-      "icons/logo.png",
-      "icons/logo.ico"
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
     ],
     "licenseFile": "../LICENSE",
     "license": "MIT"

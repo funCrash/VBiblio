@@ -1,17 +1,19 @@
 <script setup>
 import navbar from "../components/navbar.vue";
-import db from "../shared/SQL_API";
+import loadDatabase from "../shared/SQL_API";
 import { ref, onBeforeMount, computed } from "vue";
 import { useRoute } from "vue-router";
 import { errorMessages } from "vue/compiler-sfc";
 
 const route = useRoute();
+let db
 
 const formError = ref("");
 
 const book = ref([]);
 const students = ref([]);
 onBeforeMount(async () => {
+    db = await loadDatabase();
     book.value = (await db.select(`SELECT * FROM book WHERE PK_id=$1;`, [route.params.id]))[0];
     students.value = await db.select("SELECT * FROM student;");
 });

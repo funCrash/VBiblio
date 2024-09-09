@@ -1,12 +1,14 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import  db from "../shared/SQL_API";
+import  loadDatabase from "../shared/SQL_API";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+let db
 
 const books = ref(undefined);
 onMounted(async () => {
+    db = await loadDatabase();
     books.value = await db.select("SELECT PK_id, title FROM book;");
 });
 </script>
