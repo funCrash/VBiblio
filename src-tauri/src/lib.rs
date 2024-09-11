@@ -28,6 +28,9 @@ pub fn run() {
                 PK_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 FK_book INTEGER NOT NULL,
                 FK_student INTEGER NOT NULL,
+                loan_date TEXT NOT NULL,
+                returned INTEGER NOT NULL DEFAULT 0,
+                returned_date TEXT,
                 FOREIGN KEY (FK_book) REFERENCES book(PK_id),
                 FOREIGN KEY (FK_student) REFERENCES student(PK_id)
               );",
