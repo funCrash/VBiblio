@@ -5,7 +5,7 @@ import  QrScanner from 'qr-scanner';
 import { useRouter } from "vue-router";
 
 const router = useRouter()
-// To open and close the modal
+/* To open and close the modal */
 const props = defineProps({
     isModalOpen: Boolean,
 });
@@ -15,7 +15,7 @@ function closeModal() {
     qrScanner.stop()
 }
 
-// To use the QRCode scanner
+/* Setup for QRCode scanner */
 let qrScanner = undefined;
 const qrcodeArea = ref(null);
 onMounted(() => {
@@ -26,7 +26,6 @@ onMounted(() => {
                 qrScanner = new QrScanner(
                     qrcodeArea.value,
                     result => {
-                        console.log('decoded qr code:', result);
                         router.push({ path: "book/", params: { id:result.data } })
                     },
                     { highlightScanRegion: true },
